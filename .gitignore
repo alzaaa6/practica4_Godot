@@ -1,0 +1,18 @@
+# Godot 4+
+.godot/
+
+# Godot 3
+.import/
+
+# Exportacions i configuracions locals
+export.cfg
+export_presets.cfg
+
+# Fitxers de sistema operatiu
+.DS_Store
+Thumbs.db
+
+# Si feu servir C# (Mono)
+.mono/
+data_*/
+mono_crash.*.json
