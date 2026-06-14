@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv71byyv6d6sp"]
+
+[ext_resource type="Script" uid="uid://vmqh3mec2p0n" path="res://SCRIPTS/pantalla_inici.gd" id="1_8vxt6"]
+
+[node name="PantallaInici" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8vxt6")
+
+[node name="Titol" type="Label" parent="."]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 60.0
+offset_right = 783.0
+offset_bottom = 83.0
+text = "Titol del joc"
+horizontal_alignment = 1
+
+[node name="NomJugador" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 231.0
+offset_right = 756.0
+offset_bottom = 262.0
+placeholder_text = "Nom del jugador"
+
+[node name="Btn_Options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 327.0
+offset_right = 624.0
+offset_bottom = 358.0
+text = "Opcions"
+
+[node name="BtnPlay" type="Button" parent="."]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 393.0
+offset_right = 625.0
+offset_bottom = 424.0
+text = "Jugar"
+
+[node name="BtnSortir" type="Button" parent="."]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 465.0
+offset_right = 604.0
+offset_bottom = 496.0
+text = "Sortir
+"
+
+[connection signal="pressed" from="Btn_Options" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="BtnPlay" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="BtnSortir" to="." method="_on_btn_sortir_pressed"]
