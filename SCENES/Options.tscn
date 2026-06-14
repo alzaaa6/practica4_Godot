@@ -8,10 +8,62 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45452422, 0.45452428, 0.45452422, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 453.0
-offset_top = 120.0
-offset_right = 493.0
-offset_bottom = 143.0
+offset_left = 344.0
+offset_top = 23.0
+offset_right = 844.0
+offset_bottom = 625.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 text = "Escena options"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="Audio" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="BarraVolumen" type="HSlider" parent="VBoxContainer/TabContainer/Audio"]
+layout_mode = 2
+
+[node name="Graficos" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="CheckBoxPantallaCompleta" type="CheckBox" parent="VBoxContainer/TabContainer/Graficos"]
+layout_mode = 2
+text = "Activar pantalla completa"
+
+[node name="OpcionesResolucionPantalla" type="OptionButton" parent="VBoxContainer/TabContainer/Graficos"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "720x480"
+popup/item_1/id = 1
+
+[node name="Controles" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="BtnVolver" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Volver al menú"
