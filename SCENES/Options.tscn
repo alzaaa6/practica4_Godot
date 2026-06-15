@@ -387,3 +387,5 @@ theme_override_colors/font_color = Color(0.9098039, 0.72156864, 0.29411766, 1)
 theme_override_colors/font_hover_color = Color(1, 0.8156863, 0.43137255, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_w1cas")
 text = "Guardar canvis"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BtnTornarMenu" to="." method="_on_btn_tornar_menu_pressed"]

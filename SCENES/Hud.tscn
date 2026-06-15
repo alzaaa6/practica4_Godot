@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://ob8j52w4w64r"]
+[gd_scene load_steps=2 format=3 uid="uid://ob8j52w4w64r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oka2v"]
+bg_color = Color(1, 0, 0, 1)
 
 [node name="Hud" type="CanvasLayer"]
 
@@ -24,6 +27,8 @@ layout_mode = 2
 
 [node name="BarraVida" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_oka2v")
+value = 100.0
 
 [node name="Control" type="Control" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
