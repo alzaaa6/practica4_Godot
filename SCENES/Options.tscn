@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://ocubepkwgjh"]
+[gd_scene load_steps=2 format=3 uid="uid://ocubepkwgjh"]
+
+[ext_resource type="Script" uid="uid://bv5giywrvtd8d" path="res://SCRIPTS/options.gd" id="1_pm6ig"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pm6ig")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -67,3 +70,5 @@ metadata/_tab_index = 2
 [node name="BtnVolver" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Volver al menú"
+
+[connection signal="pressed" from="VBoxContainer/BtnVolver" to="." method="_on_btn_volver_pressed"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkolqruuesk0"]
+
+[ext_resource type="Script" uid="uid://b0pt6dt0rhipv" path="res://SCRIPTS/pantalla_final.gd" id="1_d814w"]
+
+[node name="PantallaFinal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d814w")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 543.0
+offset_top = 130.0
+offset_right = 621.0
+offset_bottom = 153.0
+text = "RESULTAT"
+
+[node name="BtnTornarMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 443.0
+offset_right = 336.0
+offset_bottom = 467.0
+text = "Tornar al menú"
+
+[node name="BtnTornarAJugar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 447.0
+offset_right = 512.0
+offset_bottom = 483.0
+text = "Tornar a jugar"
+
+[connection signal="pressed" from="BtnTornarMenu" to="." method="_on_btn_tornar_menu_pressed"]
+[connection signal="pressed" from="BtnTornarAJugar" to="." method="_on_btn_tornar_a_jugar_pressed"]
