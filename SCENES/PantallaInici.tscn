@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv71byyv6d6sp"]
+[gd_scene load_steps=3 format=3 uid="uid://cv71byyv6d6sp"]
 
 [ext_resource type="Script" uid="uid://vmqh3mec2p0n" path="res://SCRIPTS/pantalla_inici.gd" id="1_8vxt6"]
+[ext_resource type="AudioStream" uid="uid://d070rs5h2olrx" path="res://ASSETS/SOUNDS/sonido_opciones_menu.ogg" id="2_h4djb"]
 
 [node name="PantallaInici" type="Control"]
 layout_mode = 3
@@ -52,6 +53,10 @@ offset_right = 604.0
 offset_bottom = 496.0
 text = "Sortir
 "
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_h4djb")
+bus = &"SFX"
 
 [connection signal="pressed" from="Btn_Options" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="BtnPlay" to="." method="_on_btn_play_pressed"]

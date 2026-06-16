@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ocubepkwgjh"]
+[gd_scene load_steps=13 format=3 uid="uid://ocubepkwgjh"]
 
 [ext_resource type="Script" uid="uid://bv5giywrvtd8d" path="res://SCRIPTS/options.gd" id="1_pm6ig"]
+[ext_resource type="AudioStream" uid="uid://d070rs5h2olrx" path="res://ASSETS/SOUNDS/sonido_opciones_menu.ogg" id="2_tr7gc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pm6ig"]
 bg_color = Color(0.13333334, 0.10980392, 0.078431375, 1)
@@ -22,9 +23,23 @@ border_width_bottom = 2
 border_color = Color(0.9098039, 0.72156864, 0.29411766, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvo6w"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
 bg_color = Color(0.22745098, 0.1764706, 0.09411765, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5cg6"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.7882353, 0.5921569, 0.22745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jx2c"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.22745098, 0.1764706, 0.09411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w27dd"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
 bg_color = Color(0.7882353, 0.5921569, 0.22745098, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oajgm"]
@@ -117,7 +132,7 @@ size_flags_horizontal = 3
 theme_override_styles/slider = SubResource("StyleBoxFlat_jvo6w")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_v5cg6")
 
-[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MasterVolume"]
+[node name="LabelMaster" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MasterVolume"]
 layout_mode = 2
 text = "80"
 
@@ -133,10 +148,10 @@ text = "Music volume"
 [node name="HSliderMusic" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/slider = SubResource("StyleBoxFlat_jvo6w")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_v5cg6")
+theme_override_styles/slider = SubResource("StyleBoxFlat_2jx2c")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_w27dd")
 
-[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume"]
+[node name="LabelMusic" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume"]
 layout_mode = 2
 text = "80"
 
@@ -155,7 +170,7 @@ size_flags_horizontal = 3
 theme_override_styles/slider = SubResource("StyleBoxFlat_jvo6w")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_v5cg6")
 
-[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/SFXVolume"]
+[node name="LabelSFX" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/SFXVolume"]
 layout_mode = 2
 text = "80"
 
@@ -388,5 +403,13 @@ theme_override_colors/font_hover_color = Color(1, 0.8156863, 0.43137255, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_w1cas")
 text = "Guardar canvis"
 
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_tr7gc")
+bus = &"SFX"
+
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MasterVolume/HSliderMaster" to="." method="_on_h_slider_master_value_changed"]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume/HSliderMusic" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/SFXVolume/HSliderSFX" to="." method="_on_h_slider_sfx_value_changed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BtnTornarMenu" to="." method="_on_btn_tornar_menu_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BtnGuardarCanvis" to="." method="_on_btn_guardar_canvis_pressed"]
