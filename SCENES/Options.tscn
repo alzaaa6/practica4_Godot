@@ -111,7 +111,7 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.72156864, 0.5647059, 0.3764706, 1)
 text = "Master volume"
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MasterVolume"]
+[node name="HSliderMaster" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MasterVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/slider = SubResource("StyleBoxFlat_jvo6w")
@@ -130,7 +130,7 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.72156864, 0.5647059, 0.3764706, 1)
 text = "Music volume"
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume"]
+[node name="HSliderMusic" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/slider = SubResource("StyleBoxFlat_jvo6w")
@@ -149,7 +149,7 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.72156864, 0.5647059, 0.3764706, 1)
 text = "SFX Volume"
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/SFXVolume"]
+[node name="HSliderSFX" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/SFXVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/slider = SubResource("StyleBoxFlat_jvo6w")
@@ -388,4 +388,5 @@ theme_override_colors/font_hover_color = Color(1, 0.8156863, 0.43137255, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_w1cas")
 text = "Guardar canvis"
 
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume/HSliderMusic" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BtnTornarMenu" to="." method="_on_btn_tornar_menu_pressed"]

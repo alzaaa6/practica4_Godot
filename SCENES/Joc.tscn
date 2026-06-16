@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://448rht3dox7y"]
+[gd_scene load_steps=4 format=3 uid="uid://448rht3dox7y"]
 
 [ext_resource type="PackedScene" uid="uid://0pm7pkrkedpj" path="res://SCENES/Arena.tscn" id="1_0iq66"]
 [ext_resource type="PackedScene" uid="uid://ob8j52w4w64r" path="res://SCENES/Hud.tscn" id="2_dwluj"]
+[ext_resource type="AudioStream" uid="uid://hux805c0jgf7" path="res://ASSETS/SOUNDS/musica_fons.ogg" id="3_51oj1"]
 
 [node name="Joc" type="Node2D"]
 
 [node name="Arena" parent="." instance=ExtResource("1_0iq66")]
 
 [node name="Hud" parent="." instance=ExtResource("2_dwluj")]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_51oj1")
+autoplay = true
+bus = &"Music"
