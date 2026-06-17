@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ob8j52w4w64r"]
+[gd_scene load_steps=3 format=3 uid="uid://ob8j52w4w64r"]
+
+[ext_resource type="Script" uid="uid://yuql20tl7450" path="res://SCRIPTS/hud.gd" id="1_ljla4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oka2v"]
 bg_color = Color(1, 0, 0, 1)
 
 [node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_ljla4")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

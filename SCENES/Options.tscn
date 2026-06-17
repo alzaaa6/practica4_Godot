@@ -59,6 +59,7 @@ border_width_bottom = 1
 border_color = Color(0.7882353, 0.5921569, 0.22745098, 1)
 
 [node name="Options" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,9 +112,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tr7gc")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_j45cl")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_7atj1")
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 
 [node name="♪ Àudio" type="VBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -243,7 +245,6 @@ layout_mode = 2
 button_pressed = true
 
 [node name="⌨ Controls" type="VBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -274,7 +275,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Moure amunt"
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer"]
+[node name="Btn_Amunt" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
 text = "W"
 
@@ -285,7 +286,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Moure avall"
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer2"]
+[node name="Btn_Avall" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer2"]
 layout_mode = 2
 text = "S"
 
@@ -296,7 +297,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Moure esquerra"
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer3"]
+[node name="Btn_Esquerra" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer3"]
 layout_mode = 2
 text = "A"
 
@@ -307,7 +308,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Moure dreta"
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer4"]
+[node name="Btn_Dreta" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer4"]
 layout_mode = 2
 text = "D"
 
@@ -338,7 +339,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Atacar"
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer2/GridContainer/HBoxContainer"]
+[node name="Btn_Atac" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer2/GridContainer/HBoxContainer"]
 layout_mode = 2
 text = "W"
 
@@ -369,7 +370,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Inventari"
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer3/GridContainer/HBoxContainer"]
+[node name="Btn_Inventari" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer3/GridContainer/HBoxContainer"]
 layout_mode = 2
 text = "I"
 
@@ -380,7 +381,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Pausa"
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer3/GridContainer/HBoxContainer2"]
+[node name="Btn_Pausa" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer3/GridContainer/HBoxContainer2"]
 layout_mode = 2
 text = "ESC"
 
@@ -411,5 +412,13 @@ bus = &"SFX"
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume/HSliderMusic" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/SFXVolume/HSliderSFX" to="." method="_on_h_slider_sfx_value_changed"]
+[connection signal="item_selected" from="PanelContainer/VBoxContainer/TabContainer/◈ Gràfics/ModePantalla/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer/Btn_Amunt" to="." method="_on_btn_amunt_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer2/Btn_Avall" to="." method="_on_btn_avall_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer3/Btn_Esquerra" to="." method="_on_btn_esquerra_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer4/Btn_Dreta" to="." method="_on_btn_dreta_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer2/GridContainer/HBoxContainer/Btn_Atac" to="." method="_on_btn_atac_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer3/GridContainer/HBoxContainer/Btn_Inventari" to="." method="_on_btn_inventari_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer3/GridContainer/HBoxContainer2/Btn_Pausa" to="." method="_on_btn_pausa_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BtnTornarMenu" to="." method="_on_btn_tornar_menu_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BtnGuardarCanvis" to="." method="_on_btn_guardar_canvis_pressed"]
