@@ -1,12 +1,15 @@
 extends Control
 
 @onready var sfx_player: AudioStreamPlayer2D = $SFXPlayer
+@onready var fade: ColorRect = $Fade
+@onready var anim: AnimationPlayer = $Fade/AnimationPlayer
+@onready var sfx_jugar: AudioStreamPlayer2D = $SFXPlay
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,8 +24,9 @@ func _on_btn_options_pressed() -> void:
 
 
 func _on_btn_play_pressed() -> void:
-	sfx_player.play()
-	await sfx_player.finished
+	sfx_jugar.play()
+	anim.play("fade_to_black")
+	await anim.animation_finished
 	get_tree().change_scene_to_file("res://SCENES/Joc.tscn")
 
 
