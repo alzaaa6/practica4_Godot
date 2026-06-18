@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ob8j52w4w64r"]
+[gd_scene load_steps=4 format=3 uid="uid://ob8j52w4w64r"]
 
 [ext_resource type="Script" uid="uid://yuql20tl7450" path="res://SCRIPTS/hud.gd" id="1_ljla4"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oka2v"]
-bg_color = Color(1, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://cd5gjmtd3luli" path="res://ASSETS/health_bar_bg.png" id="2_1sa8c"]
+[ext_resource type="Texture2D" uid="uid://clyhr2ro6fokm" path="res://ASSETS/health_bar_fill.png" id="3_lys00"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_ljla4")
@@ -27,15 +26,43 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 25
 
-[node name="BarraVida" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_oka2v")
-value = 100.0
-
-[node name="Control" type="Control" parent="Control/MarginContainer/VBoxContainer"]
+[node name="ControlBarraVida" type="Control" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="LabelOleades" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+[node name="BarraVida" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/ControlBarraVida"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 273.0
+offset_bottom = 20.0
+texture_under = ExtResource("2_1sa8c")
+texture_progress = ExtResource("3_lys00")
+
+[node name="LabelPorcentatgeVida" type="Label" parent="Control/MarginContainer/VBoxContainer/ControlBarraVida"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_right = -116.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9098039, 0.72156864, 0.29411766, 1)
+theme_override_font_sizes/font_size = 12
+text = "%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="LabelOleades" type="Label" parent="Control/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Oleada: x/5"
+
+[node name="LabelEnemics" type="Label" parent="Control/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Enemics restants: x/y"

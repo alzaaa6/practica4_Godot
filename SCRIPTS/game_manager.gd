@@ -15,10 +15,13 @@ var settings := {
 }
 
 var in_game := false
+var fase_boost := false
 
 # Jugador
 var vida_max := 100.0
 var vida_actual := 100.0
+var atac := 20.0
+var defensa := 20.0
 
 # Oleades
 var oleada_actual := 1
@@ -74,10 +77,31 @@ func apply_window_mode() -> void:
 # Funcions de DEBUG
 func rebre_damage(damage: float) -> void:
 	vida_actual = max(0, vida_actual - damage)
+
 func eliminar_enemic() -> void:
+	if fase_boost:
+		return  # No es pot eliminar enemics durant el boost
 	enemics_eliminats += 1
 	if enemics_eliminats >= enemics_per_oleada:
 		enemics_eliminats = 0
 		oleada_actual += 1
-		print("Nova oleada: ", oleada_actual)
+		fase_boost = true
+		print("--- SELECCIONA BOOST ---")
+		print("F5: Atac | F6: Defensa | F7: Vida")
 # Ja NO funcions de debug
+
+func aplicar_boost(tipus: String) -> void:
+	if !fase_boost:
+		return  # No es pot agafar boost fora de la fase de boost
+	fase_boost = false
+	match tipus:
+		"atac":
+			atac += 5
+			print("BOOST ATAC aplicat! | Atac: ", atac, " | Defensa: ", defensa, " | Vida: ", vida_actual)
+		"defensa":
+			defensa += 5
+			print("BOOST DEFENSA aplicat! | Atac: ", atac, " | Defensa: ", defensa, " | Vida: ", vida_actual)
+		"vida":
+			vida_actual = vida_max
+			print("BOOST VIDA aplicat! | Atac: ", atac, " | Defensa: ", defensa, " | Vida: ", vida_actual)
+	print("--- NOVA OLEADA %d ---" % oleada_actual)
