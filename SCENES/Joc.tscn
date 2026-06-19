@@ -10,6 +10,7 @@
 script = ExtResource("1_slpsx")
 
 [node name="Arena" parent="." instance=ExtResource("1_0iq66")]
+position = Vector2(425, 178)
 
 [node name="Hud" parent="." instance=ExtResource("2_dwluj")]
 

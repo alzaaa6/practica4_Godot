@@ -4,20 +4,20 @@ extends Control
 @onready var fade: ColorRect = $Fade
 @onready var anim: AnimationPlayer = $Fade/AnimationPlayer
 @onready var sfx_jugar: AudioStreamPlayer2D = $SFXPlay
-@onready var btn_esquerra: Button = $HBoxContainer/BtnEsquerra
-@onready var btn_dreta: Button = $HBoxContainer/BtnDreta
-@onready var personatge_img: TextureRect = $HBoxContainer/TextureRect
-@onready var label_nom: Label = $LabelNom
+@onready var btn_esquerra: Button = $VBoxContainerPrincipal/HBoxContainer/BtnEsquerra
+@onready var btn_dreta: Button = $VBoxContainerPrincipal/HBoxContainer/BtnDreta
+@onready var personatge_img: TextureRect = $VBoxContainerPrincipal/HBoxContainer/PanelContainer/TextureRect
+@onready var label_nom: Label = $VBoxContainerPrincipal/LabelNom
 
-var noms := ["Guerrer", "Mag", "Archer"]
 
 
 var personatge_actual := 0
 var personatges := [
-	preload("res://ASSETS/personatge1.png"),
-	preload("res://ASSETS/personatge2.png"),
-	preload("res://ASSETS/personatge3.png"),
+	preload("res://ASSETS/Shinobi_retall.png"),
+	preload("res://ASSETS/Fighter_retall.png"),
+	preload("res://ASSETS/Samurai_retall.png"),
 ]
+var noms := ["SHINOBI", "FIGHTER", "SAMURAI"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

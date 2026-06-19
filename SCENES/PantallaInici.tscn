@@ -1,8 +1,88 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv71byyv6d6sp"]
+[gd_scene load_steps=19 format=3 uid="uid://cv71byyv6d6sp"]
 
 [ext_resource type="Script" uid="uid://vmqh3mec2p0n" path="res://SCRIPTS/pantalla_inici.gd" id="1_8vxt6"]
 [ext_resource type="AudioStream" uid="uid://d070rs5h2olrx" path="res://ASSETS/SOUNDS/sonido_opciones_menu.ogg" id="2_h4djb"]
 [ext_resource type="AudioStream" uid="uid://dkoriaugdafot" path="res://ASSETS/SOUNDS/boton-empezar-a-jugar.ogg" id="3_1rr07"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1rr07"]
+color = Color(0.41960785, 0.30980393, 0.16470589, 1)
+thickness = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mtvc"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(0.101960786, 0.078431375, 0.0627451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.41960785, 0.30980393, 0.16470589, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpjc2"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(0.101960786, 0.078431375, 0.0627451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7882353, 0.5921569, 0.22745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8du45"]
+bg_color = Color(0.18039216, 0.13333334, 0.08235294, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.41960785, 0.30980393, 0.16470589, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sgfi"]
+bg_color = Color(0.101960786, 0.078431375, 0.0627451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.41960785, 0.30980393, 0.16470589, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_1c44d"]
+spacing_glyph = 5
+
+[sub_resource type="FontVariation" id="FontVariation_1rr07"]
+spacing_glyph = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a4tf"]
+bg_color = Color(0.22745098, 0.16470589, 0.0627451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7882353, 0.5921569, 0.22745098, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_8du45"]
+spacing_glyph = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c44d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2901961, 0.20784314, 0.1254902, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_8a4tf"]
+spacing_glyph = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pnoj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2901961, 0.20784314, 0.1254902, 1)
 
 [sub_resource type="Animation" id="Animation_8du45"]
 length = 0.001
@@ -50,78 +130,144 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8vxt6")
 
-[node name="Titol" type="Label" parent="."]
-layout_mode = 0
-offset_left = 336.0
-offset_top = 60.0
-offset_right = 783.0
-offset_bottom = 83.0
-text = "Titol del joc"
+[node name="Fons" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05490196, 0.043137256, 0.03137255, 1)
+
+[node name="VBoxContainerPrincipal" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -364.5
+offset_top = -455.0
+offset_right = 364.5
+offset_bottom = 455.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainerPrincipal"]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="AntorchaEsquerra" type="Label" parent="VBoxContainerPrincipal/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "🔥"
+
+[node name="Titol" type="Label" parent="VBoxContainerPrincipal/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.72156864, 0.29411766, 1)
+theme_override_font_sizes/font_size = 32
+text = "Bug Slayer"
 horizontal_alignment = 1
 
-[node name="NomJugador" type="LineEdit" parent="."]
-layout_mode = 0
-offset_left = 381.0
-offset_top = 135.0
-offset_right = 756.0
-offset_bottom = 166.0
+[node name="AntorchaDreta" type="Label" parent="VBoxContainerPrincipal/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "🔥"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainerPrincipal"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_1rr07")
+
+[node name="NomJugador" type="LineEdit" parent="VBoxContainerPrincipal"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.5647059, 0.3764706, 1)
+theme_override_colors/font_placeholder_color = Color(0.2901961, 0.20784314, 0.1254902, 1)
+theme_override_colors/caret_color = Color(0.7882353, 0.5921569, 0.22745098, 1)
+theme_override_colors/selection_color = Color(0.41960785, 0.30980393, 0.16470589, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1mtvc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dpjc2")
 placeholder_text = "Nom del jugador"
+alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 345.0
-offset_top = 208.0
-offset_right = 756.0
-offset_bottom = 419.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainerPrincipal"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+alignment = 1
 
-[node name="BtnEsquerra" type="Button" parent="HBoxContainer"]
+[node name="BtnEsquerra" type="Button" parent="VBoxContainerPrincipal/HBoxContainer"]
+custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.7882353, 0.5921569, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(0.9098039, 0.72156864, 0.29411766, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_8du45")
 text = "◀"
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainerPrincipal/HBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_4sgfi")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainerPrincipal/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(140, 140)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 5.0
+expand_mode = 1
+stretch_mode = 5
 
-[node name="BtnDreta" type="Button" parent="HBoxContainer"]
+[node name="BtnDreta" type="Button" parent="VBoxContainerPrincipal/HBoxContainer"]
+custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.7882353, 0.5921569, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(0.9098039, 0.72156864, 0.29411766, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_8du45")
 text = "▶"
 
-[node name="LabelNom" type="Label" parent="."]
-layout_mode = 0
-offset_left = 423.0
-offset_top = 442.0
-offset_right = 694.0
-offset_bottom = 465.0
+[node name="LabelNom" type="Label" parent="VBoxContainerPrincipal"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7882353, 0.5921569, 0.22745098, 1)
+theme_override_fonts/font = SubResource("FontVariation_1c44d")
+theme_override_font_sizes/font_size = 13
 text = "Nom del personatge"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Btn_Options" type="Button" parent="."]
-layout_mode = 0
-offset_left = 489.0
-offset_top = 539.0
-offset_right = 631.0
-offset_bottom = 570.0
-text = "Opcions"
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainerPrincipal"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="BtnPlay" type="Button" parent="."]
-layout_mode = 0
-offset_left = 491.0
-offset_top = 495.0
-offset_right = 632.0
-offset_bottom = 526.0
-text = "Jugar"
+[node name="BtnPlay" type="Button" parent="VBoxContainerPrincipal/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.72156864, 0.29411766, 1)
+theme_override_fonts/font = SubResource("FontVariation_1rr07")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8a4tf")
+text = "PLAY"
 
-[node name="BtnSortir" type="Button" parent="."]
-layout_mode = 0
-offset_left = 509.0
-offset_top = 583.0
-offset_right = 611.0
-offset_bottom = 614.0
-text = "Sortir
+[node name="Btn_Options" type="Button" parent="VBoxContainerPrincipal/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47843137, 0.3764706, 0.2509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_8du45")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1c44d")
+text = "OPTIONS"
+
+[node name="BtnSortir" type="Button" parent="VBoxContainerPrincipal/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47843137, 0.3764706, 0.2509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_8a4tf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1pnoj")
+text = "EXIT
 "
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
@@ -133,6 +279,7 @@ stream = ExtResource("3_1rr07")
 bus = &"SFX"
 
 [node name="Fade" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -148,8 +295,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_8a4tf")
 }
 
-[connection signal="pressed" from="HBoxContainer/BtnEsquerra" to="." method="_on_btn_esquerra_pressed"]
-[connection signal="pressed" from="HBoxContainer/BtnDreta" to="." method="_on_btn_dreta_pressed"]
-[connection signal="pressed" from="Btn_Options" to="." method="_on_btn_options_pressed"]
-[connection signal="pressed" from="BtnPlay" to="." method="_on_btn_play_pressed"]
-[connection signal="pressed" from="BtnSortir" to="." method="_on_btn_sortir_pressed"]
+[connection signal="pressed" from="VBoxContainerPrincipal/HBoxContainer/BtnEsquerra" to="." method="_on_btn_esquerra_pressed"]
+[connection signal="pressed" from="VBoxContainerPrincipal/HBoxContainer/BtnDreta" to="." method="_on_btn_dreta_pressed"]
+[connection signal="pressed" from="VBoxContainerPrincipal/VBoxContainer/BtnPlay" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="VBoxContainerPrincipal/VBoxContainer/Btn_Options" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="VBoxContainerPrincipal/VBoxContainer/BtnSortir" to="." method="_on_btn_sortir_pressed"]
