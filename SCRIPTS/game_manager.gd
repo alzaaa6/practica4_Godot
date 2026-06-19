@@ -10,7 +10,6 @@ var settings := {
 	"master_volume": 80.0,
 	"music_volume": 80.0,
 	"sfx_volume": 80.0,
-	#grafics
 	"window_mode": 0,
 }
 
@@ -22,11 +21,23 @@ var vida_max := 100.0
 var vida_actual := 100.0
 var atac := 20.0
 var defensa := 20.0
+var nom_jugador := ""
+var personatge_seleccionat := 0  # índex 0=Shinobi, 1=Fighter, 2=Samurai
+var noms_personatges := ["Shinobi", "Fighter", "Samurai"]
 
 # Oleades
 var oleada_actual := 1
 var enemics_per_oleada := 5
 var enemics_eliminats := 0
+
+# Puntuació
+var oleades_completades := 0
+var puntuacio := 0
+var millor_puntuacio := 0
+var oleades_per_guanyar := 5
+var partida_acabada := false
+var resultat := ""
+
 
 func _ready() -> void:
 	load_settings()
@@ -77,17 +88,24 @@ func apply_window_mode() -> void:
 # Funcions de DEBUG
 func rebre_damage(damage: float) -> void:
 	vida_actual = max(0, vida_actual - damage)
+	if vida_actual <= 0:
+		partida_acabada = true
+		GameManager.resultat = "DERROTA"
 
 func eliminar_enemic() -> void:
 	if fase_boost:
-		return  # No es pot eliminar enemics durant el boost
+		return
 	enemics_eliminats += 1
+	puntuacio += 10
 	if enemics_eliminats >= enemics_per_oleada:
 		enemics_eliminats = 0
 		oleada_actual += 1
+		oleades_completades += 1
+		puntuacio += 50
 		fase_boost = true
-		print("--- SELECCIONA BOOST ---")
-		print("F5: Atac | F6: Defensa | F7: Vida")
+		if oleades_completades >= oleades_per_guanyar:
+			partida_acabada = true
+			resultat = "VICTORIA"
 # Ja NO funcions de debug
 
 func aplicar_boost(tipus: String) -> void:
@@ -105,3 +123,17 @@ func aplicar_boost(tipus: String) -> void:
 			vida_actual = vida_max
 			print("BOOST VIDA aplicat! | Atac: ", atac, " | Defensa: ", defensa, " | Vida: ", vida_actual)
 	print("--- NOVA OLEADA %d ---" % oleada_actual)
+
+func actualitzar_millor_puntuacio() -> void:
+	if puntuacio > millor_puntuacio:
+		millor_puntuacio = puntuacio
+
+func reset_partida() -> void:
+	vida_actual = vida_max
+	oleada_actual = 1
+	enemics_eliminats = 0
+	oleades_completades = 0
+	puntuacio = 0
+	fase_boost = false
+	partida_acabada = false
+	resultat = ""

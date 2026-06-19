@@ -2,6 +2,12 @@ extends Node2D
 
 @onready var options_overlay = $UILayer/OptionsOverlay
 
+func _process(delta: float) -> void:
+	if GameManager.partida_acabada:
+		GameManager.partida_acabada = false
+		GameManager.actualitzar_millor_puntuacio()
+		get_tree().change_scene_to_file("res://SCENES/PantallaFinal.tscn")
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		_toggle_pausa()

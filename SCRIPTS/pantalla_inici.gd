@@ -8,6 +8,7 @@ extends Control
 @onready var btn_dreta: Button = $VBoxContainerPrincipal/HBoxContainer/BtnDreta
 @onready var personatge_img: TextureRect = $VBoxContainerPrincipal/HBoxContainer/PanelContainer/TextureRect
 @onready var label_nom: Label = $VBoxContainerPrincipal/LabelNom
+@onready var nom_usuari: LineEdit = $VBoxContainerPrincipal/NomJugador
 
 
 
@@ -23,12 +24,6 @@ var noms := ["SHINOBI", "FIGHTER", "SAMURAI"]
 func _ready() -> void:
 	actualitzar_personatge()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func actualitzar_personatge() -> void:
 	personatge_img.texture = personatges[personatge_actual]
 	label_nom.text = noms[personatge_actual]
@@ -40,6 +35,9 @@ func _on_btn_options_pressed() -> void:
 
 
 func _on_btn_play_pressed() -> void:
+	GameManager.nom_jugador = nom_usuari.text
+	GameManager.personatge_seleccionat = personatge_actual
+	GameManager.reset_partida() 
 	sfx_jugar.play()
 	anim.play("fade_to_black")
 	await anim.animation_finished

@@ -279,7 +279,6 @@ stream = ExtResource("3_1rr07")
 bus = &"SFX"
 
 [node name="Fade" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

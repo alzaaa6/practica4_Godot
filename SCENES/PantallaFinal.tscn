@@ -1,6 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkolqruuesk0"]
+[gd_scene load_steps=9 format=3 uid="uid://dkolqruuesk0"]
 
 [ext_resource type="Script" uid="uid://b0pt6dt0rhipv" path="res://SCRIPTS/pantalla_final.gd" id="1_d814w"]
+
+[sub_resource type="FontVariation" id="FontVariation_d814w"]
+spacing_glyph = 6
+
+[sub_resource type="FontVariation" id="FontVariation_sm0oq"]
+spacing_glyph = 3
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_d814w"]
+color = Color(0.41960785, 0.30980393, 0.16470589, 1)
+thickness = 4
+
+[sub_resource type="FontVariation" id="FontVariation_lwl8k"]
+spacing_glyph = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d814w"]
+bg_color = Color(0.22745098, 0.16470589, 0.0627451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7882353, 0.5921569, 0.22745098, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_yh2vw"]
+spacing_glyph = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sm0oq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2901961, 0.20784314, 0.1254902, 1)
 
 [node name="PantallaFinal" type="Control"]
 layout_mode = 3
@@ -11,29 +43,95 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d814w")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 543.0
-offset_top = 130.0
-offset_right = 621.0
-offset_bottom = 153.0
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05490196, 0.043137256, 0.03137255, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -91.0
+offset_right = 63.5
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="AntorchaEsquerra" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "🔥"
+
+[node name="LabelResultat" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.72156864, 0.29411766, 1)
+theme_override_fonts/font = SubResource("FontVariation_d814w")
+theme_override_font_sizes/font_size = 42
 text = "RESULTAT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="BtnTornarMenu" type="Button" parent="."]
-layout_mode = 0
-offset_left = 173.0
-offset_top = 443.0
-offset_right = 336.0
-offset_bottom = 467.0
-text = "Tornar al menú"
+[node name="AntorchaDreta" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "🔥"
 
-[node name="BtnTornarAJugar" type="Button" parent="."]
-layout_mode = 0
-offset_left = 356.0
-offset_top = 447.0
-offset_right = 512.0
-offset_bottom = 483.0
+[node name="LabelUsuariIPersonatge" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.5647059, 0.3764706, 1)
+theme_override_fonts/font = SubResource("FontVariation_sm0oq")
+theme_override_font_sizes/font_size = 16
+text = "Jugador - SHINOBI"
+horizontal_alignment = 1
+
+[node name="LabelPuntuacio" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.5647059, 0.3764706, 1)
+theme_override_font_sizes/font_size = 20
+text = "Puntuació"
+horizontal_alignment = 1
+
+[node name="LabelMillorPuntuacio" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47843137, 0.3764706, 0.2509804, 1)
+theme_override_font_sizes/font_size = 13
+text = "Millor puntuació"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_d814w")
+
+[node name="BtnTornarAJugar" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.72156864, 0.29411766, 1)
+theme_override_fonts/font = SubResource("FontVariation_lwl8k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d814w")
 text = "Tornar a jugar"
 
-[connection signal="pressed" from="BtnTornarMenu" to="." method="_on_btn_tornar_menu_pressed"]
-[connection signal="pressed" from="BtnTornarAJugar" to="." method="_on_btn_tornar_a_jugar_pressed"]
+[node name="BtnTornarMenu" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47843137, 0.3764706, 0.2509804, 1)
+theme_override_fonts/font = SubResource("FontVariation_yh2vw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sm0oq")
+text = "Tornar al menú"
+
+[connection signal="pressed" from="VBoxContainer/BtnTornarAJugar" to="." method="_on_btn_tornar_a_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnTornarMenu" to="." method="_on_btn_tornar_menu_pressed"]
