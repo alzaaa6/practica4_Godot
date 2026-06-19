@@ -69,44 +69,58 @@ placeholder_text = "Nom del jugador"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 354.0
+offset_left = 345.0
 offset_top = 208.0
-offset_right = 765.0
+offset_right = 756.0
 offset_bottom = 419.0
 
 [node name="BtnEsquerra" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 2
 text = "◀"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
 
 [node name="BtnDreta" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 10
 text = "▶"
+
+[node name="LabelNom" type="Label" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 442.0
+offset_right = 694.0
+offset_bottom = 465.0
+text = "Nom del personatge"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Btn_Options" type="Button" parent="."]
 layout_mode = 0
-offset_left = 482.0
-offset_top = 506.0
-offset_right = 624.0
-offset_bottom = 537.0
+offset_left = 489.0
+offset_top = 539.0
+offset_right = 631.0
+offset_bottom = 570.0
 text = "Opcions"
 
 [node name="BtnPlay" type="Button" parent="."]
 layout_mode = 0
-offset_left = 484.0
-offset_top = 462.0
-offset_right = 625.0
-offset_bottom = 493.0
+offset_left = 491.0
+offset_top = 495.0
+offset_right = 632.0
+offset_bottom = 526.0
 text = "Jugar"
 
 [node name="BtnSortir" type="Button" parent="."]
 layout_mode = 0
-offset_left = 502.0
-offset_top = 550.0
-offset_right = 604.0
-offset_bottom = 581.0
+offset_left = 509.0
+offset_top = 583.0
+offset_right = 611.0
+offset_bottom = 614.0
 text = "Sortir
 "
 
@@ -119,7 +133,6 @@ stream = ExtResource("3_1rr07")
 bus = &"SFX"
 
 [node name="Fade" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,6 +148,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_8a4tf")
 }
 
+[connection signal="pressed" from="HBoxContainer/BtnEsquerra" to="." method="_on_btn_esquerra_pressed"]
+[connection signal="pressed" from="HBoxContainer/BtnDreta" to="." method="_on_btn_dreta_pressed"]
 [connection signal="pressed" from="Btn_Options" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="BtnPlay" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="BtnSortir" to="." method="_on_btn_sortir_pressed"]
