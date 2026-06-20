@@ -37,6 +37,7 @@ var millor_puntuacio := 0
 var oleades_per_guanyar := 5
 var partida_acabada := false
 var resultat := ""
+var ranking := []
 
 
 func _ready() -> void:
@@ -124,9 +125,17 @@ func aplicar_boost(tipus: String) -> void:
 			print("BOOST VIDA aplicat! | Atac: ", atac, " | Defensa: ", defensa, " | Vida: ", vida_actual)
 	print("--- NOVA OLEADA %d ---" % oleada_actual)
 
-func actualitzar_millor_puntuacio() -> void:
-	if puntuacio > millor_puntuacio:
-		millor_puntuacio = puntuacio
+func actualitzar_ranking() -> void:
+	ranking.append({
+		"nom": nom_jugador,
+		"personatge": noms_personatges[personatge_seleccionat],
+		"puntuacio": puntuacio
+	})
+	# Ordena de major a menor
+	ranking.sort_custom(func(a, b): return a["puntuacio"] > b["puntuacio"])
+	# Guarda només el top 5
+	if ranking.size() > 5:
+		ranking.resize(5)
 
 func reset_partida() -> void:
 	vida_actual = vida_max

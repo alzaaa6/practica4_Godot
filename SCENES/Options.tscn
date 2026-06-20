@@ -419,8 +419,8 @@ stream = ExtResource("2_tr7gc")
 bus = &"SFX"
 
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MasterVolume/HSliderMaster" to="." method="_on_h_slider_master_value_changed"]
-[connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume/HSliderMusic" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/MusicVolume/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/TabContainer/♪ Àudio/SFXVolume/HSliderSFX" to="." method="_on_h_slider_sfx_value_changed"]
 [connection signal="item_selected" from="PanelContainer/VBoxContainer/TabContainer/◈ Gràfics/ModePantalla/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/TabContainer/⌨ Controls/VBoxContainer/GridContainer/HBoxContainer/Btn_Amunt" to="." method="_on_btn_amunt_pressed"]
