@@ -111,19 +111,19 @@ func eliminar_enemic() -> void:
 
 func aplicar_boost(tipus: String) -> void:
 	if !fase_boost:
-		return  # No es pot agafar boost fora de la fase de boost
-	fase_boost = false
+		return
+	fase_boost = false  # comença la nova oleada
 	match tipus:
 		"atac":
 			atac += 5
-			print("BOOST ATAC aplicat! | Atac: ", atac, " | Defensa: ", defensa, " | Vida: ", vida_actual)
+			print("BOOST ATAC aplicat! | Atac: ", atac)
 		"defensa":
 			defensa += 5
-			print("BOOST DEFENSA aplicat! | Atac: ", atac, " | Defensa: ", defensa, " | Vida: ", vida_actual)
+			print("BOOST DEFENSA aplicat! | Defensa: ", defensa)
 		"vida":
+			vida_max += 20
 			vida_actual = vida_max
-			print("BOOST VIDA aplicat! | Atac: ", atac, " | Defensa: ", defensa, " | Vida: ", vida_actual)
-	print("--- NOVA OLEADA %d ---" % oleada_actual)
+			print("BOOST VIDA aplicat! | Vida: ", vida_actual)
 
 func actualitzar_ranking() -> void:
 	ranking.append({

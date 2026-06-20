@@ -30,12 +30,15 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CaixaText" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(0, 120)
-anchors_preset = 12
+custom_minimum_size = Vector2(1000, 200)
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -300.0
 offset_top = -160.0
+offset_right = 300.0
 offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -49,14 +52,14 @@ layout_mode = 2
 
 [node name="LabelNom" type="Label" parent="CaixaText/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.72156864, 0.5647059, 0.3764706, 1)
+theme_override_colors/font_color = Color(0.72156864, 0.69411767, 0.3764706, 1)
 theme_override_fonts/font = SubResource("FontVariation_6p0fx")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 30
 
 [node name="LabelText" type="Label" parent="CaixaText/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.72156864, 0.5647059, 0.3764706, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 26
 autowrap_mode = 2
 
 [node name="LabelContinuar" type="Label" parent="."]
@@ -65,14 +68,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -189.0
-offset_top = -79.0
-offset_right = -40.0
-offset_bottom = -56.0
+offset_left = -740.0
+offset_top = -77.0
+offset_right = -470.0
+offset_bottom = -49.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.41960785, 0.30980393, 0.16470589, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 20
 text = "▼ Prem ESPAI per continuar"
 
 [node name="SFXEscriure" type="AudioStreamPlayer" parent="."]
