@@ -1,6 +1,10 @@
 extends Node2D
 
 @onready var options_overlay = $UILayer/OptionsOverlay
+@onready var intro: CanvasLayer = $Intro
+
+func _ready() -> void:
+	intro.intro_acabada.connect(_on_intro_acabada)
 
 func _process(delta: float) -> void:
 	if GameManager.partida_acabada:
@@ -31,3 +35,6 @@ func _toggle_pausa() -> void:
 	get_tree().paused = pausat
 	options_overlay.visible = pausat
 	GameManager.in_game = pausat
+	
+func _on_intro_acabada() -> void:
+	$MusicPlayer.play()

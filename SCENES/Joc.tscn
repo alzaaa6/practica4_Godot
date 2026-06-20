@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://448rht3dox7y"]
+[gd_scene load_steps=7 format=3 uid="uid://448rht3dox7y"]
 
 [ext_resource type="PackedScene" uid="uid://0pm7pkrkedpj" path="res://SCENES/Arena.tscn" id="1_0iq66"]
 [ext_resource type="Script" uid="uid://dmuv050j5usbg" path="res://SCRIPTS/joc.gd" id="1_slpsx"]
 [ext_resource type="PackedScene" uid="uid://ob8j52w4w64r" path="res://SCENES/Hud.tscn" id="2_dwluj"]
 [ext_resource type="AudioStream" uid="uid://hux805c0jgf7" path="res://ASSETS/SOUNDS/musica_fons.ogg" id="3_51oj1"]
 [ext_resource type="PackedScene" uid="uid://ocubepkwgjh" path="res://SCENES/Options.tscn" id="5_qpiyl"]
+[ext_resource type="PackedScene" uid="uid://dtqqr5ea14ldt" path="res://SCENES/Intro.tscn" id="6_336ir"]
 
 [node name="Joc" type="Node2D"]
 script = ExtResource("1_slpsx")
@@ -16,7 +17,6 @@ position = Vector2(425, 178)
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_51oj1")
-autoplay = true
 bus = &"Music"
 
 [node name="UILayer" type="CanvasLayer" parent="."]
@@ -24,3 +24,5 @@ process_mode = 3
 
 [node name="OptionsOverlay" parent="UILayer" instance=ExtResource("5_qpiyl")]
 visible = false
+
+[node name="Intro" parent="." instance=ExtResource("6_336ir")]
