@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://daxq1i4rvqj32"]
+
+[ext_resource type="Script" uid="uid://bi5n8ld1bk7gk" path="res://SCRIPTS/escarabat.gd" id="1_0mrch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vi7b2"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mrch"]
+size = Vector2(28, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfk6q"]
+size = Vector2(100, 100)
+
+[node name="Escarabat" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_0mrch")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+color = Color(0.61564404, 0.3978751, 0.21092498, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vi7b2")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_0mrch")
+
+[node name="AreaExplosio" type="Area2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="AreaExplosio"]
+visible = false
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(0.9963847, 0.5389671, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaExplosio"]
+shape = SubResource("RectangleShape2D_jfk6q")
+disabled = true
+
+[node name="FaseTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="AreaExplosio" to="." method="_on_area_explosio_body_entered"]
+[connection signal="timeout" from="FaseTimer" to="." method="_on_fase_timer_timeout"]

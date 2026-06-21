@@ -17,6 +17,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 313.0
 offset_bottom = 98.0
+scale = Vector2(2.0228567, 2.0228567)
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20

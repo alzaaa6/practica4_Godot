@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://t5mreidslmks"]
+
+[ext_resource type="Script" uid="uid://ctffiwoimvmlg" path="res://SCRIPTS/formiga.gd" id="1_4urr2"]
+[ext_resource type="PackedScene" uid="uid://jhq6m8ehvd02" path="res://SCENES/laser_formiga.tscn" id="2_ckg3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_no7hv"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4urr2"]
+size = Vector2(28, 28)
+
+[node name="Formiga" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_4urr2")
+laser_scene = ExtResource("2_ckg3w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+color = Color(1, 0.7921569, 0.12156863, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_no7hv")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_4urr2")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
